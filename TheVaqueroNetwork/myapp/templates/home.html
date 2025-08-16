@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vaquero Network - Login</title>
+
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Use the Inter font family defined above */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen p-4 text-white">
+
+    <!-- Main container for the login form -->
+    <div class="w-full max-w-md bg-[#333333] rounded-xl shadow-2xl p-8 sm:p-10">
+
+        <!-- Login Form Content -->
+        <div class="text-center">
+
+            <h1 class="text-2xl sm:text-3xl font-bold mb-8">
+                Welcome to The Vaquero Network!
+            </h1>
+
+            <!-- The form itself. Set method to POST for sending data to a server. -->
+            <form action="/login/" method="POST">
+                <!--
+                  For Django integration, you would add the CSRF token here:
+                  {% csrf_token %}
+                -->
+
+                <!-- Username Input -->
+                <div class="mb-6 text-left">
+                    <label for="username" class="block text-gray-300 text-sm font-medium mb-2">
+                        Username:
+                    </label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        class="w-full px-4 py-2 bg-[#2a2a2a] text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                        required
+                    >
+                </div>
+
+                <!-- Password Input -->
+                <div class="mb-8 text-left">
+                    <label for="password" class="block text-gray-300 text-sm font-medium mb-2">
+                        Password:
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="w-full px-4 py-2 bg-[#2a2a2a] text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                        required
+                    >
+                </div>
+
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    class="w-full bg-gray-200 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform transform hover:scale-105 duration-300"
+                >
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
