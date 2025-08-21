@@ -2,6 +2,8 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 def home(request):
@@ -38,3 +40,23 @@ def login_or_create_user(request):
                 return redirect('dashboard')  # Redirect to the dashboard
 
     return redirect('home')
+
+@login_required
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+@login_required
+def activities(request):
+    return render(request, 'activities.html')
+
+@login_required
+def calendar(request):
+    return render(request, 'calendar.html')
+
+@login_required
+def bulletin_board(request):
+    return render(request, 'bulletin_board.html')
+
+@login_required
+def emergency_contacts(request):
+    return render(request, 'emergency_contacts.html')

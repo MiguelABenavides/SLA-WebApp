@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-800 text-white min-h-screen flex items-center justify-center">
-    <div class="text-center">
-        <h1 class="text-4xl font-bold">Welcome to the Dashboard!</h1>
+<!-- This template now inherits the sidebar and layout from base.html -->
+{% extends 'base.html' %}
 
-        <!-- Display welcome messages -->
-        {% if messages %}
-            <div class="mt-4">
-                {% for message in messages %}
-                    <p class="text-green-400 text-lg">{{ message }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
+<!-- Set the title for this specific page -->
+{% block title %}Dashboard - Home{% endblock %}
 
-        <p class="mt-4">You have successfully logged in.</p>
+<!-- This is the main content for the dashboard home page -->
+{% block content %}
+    <h1 class="text-4xl font-bold mb-4">Dashboard</h1>
+
+    <!-- Display welcome messages from the login view -->
+    {% if messages %}
+        <div class="mb-6">
+            {% for message in messages %}
+                <p class="text-green-400 text-lg">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="bg-gray-800 p-6 rounded-lg">
+        <p class="text-lg">
+            Welcome to The Vaquero Network!
+        </p>
+        <p class="mt-2 text-gray-400">
+            This is your dashboard home. Use the navigation on the left to explore Activities, Calendar, Bulletin Board, and Emergency Contacts.
+        </p>
     </div>
-</body>
-</html>
+{% endblock %}
