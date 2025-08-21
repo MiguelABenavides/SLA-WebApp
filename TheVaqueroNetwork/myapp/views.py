@@ -19,7 +19,6 @@ def login_or_create_user(request):
         if not username or not password:
             return render(request, 'home.html', {'error': 'Username and Password cannot be empty.'})
 
-        # Try to authenticate the user
         user = authenticate(request, username=username, password=password)
 
         if user is not None:

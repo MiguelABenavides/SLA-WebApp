@@ -28,7 +28,6 @@
                 Welcome to The Vaquero Network!
             </h1>
 
-            <!-- Display messages from the backend -->
             {% if messages %}
                 <div class="mb-4">
                     {% for message in messages %}
@@ -37,15 +36,12 @@
                 </div>
             {% endif %}
 
-            <!-- Display error messages -->
             {% if error %}
                  <p class="text-red-400 mb-4">{{ error }}</p>
             {% endif %}
 
 
-            <!-- The action now points to our new 'login_or_create' URL name -->
             <form action="{% url 'login_or_create' %}" method="POST">
-                <!-- IMPORTANT: Add Django's CSRF token for security -->
                 {% csrf_token %}
 
                 <div class="mb-6 text-left">
