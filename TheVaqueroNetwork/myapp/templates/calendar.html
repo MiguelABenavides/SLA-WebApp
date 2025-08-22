@@ -3,9 +3,41 @@
 {% block title %}Calendar{% endblock %}
 
 {% block content %}
-    <h1 class="text-4xl font-bold mb-6">Event Calendar</h1>
+    <style>
+        .month {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .month th, .month td {
+            text-align: center;
+            padding: 12px;
+            border: 1px solid #4a5568;
+        }
+        .month th {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .month .mon, .month .tue, .month .wed, .month .thu, .month .fri, .month .sat, .month .sun {
+            color: #a0aec0;
+        }
+        .month td {
+            background-color: #4a5568;
+        }
+        .month .today {
+            background-color: #6366f1;
+            font-weight: bold;
+        }
+    </style>
+
+    <h1 class="text-4xl font-bold mb-4">Event Calendar</h1>
 
     <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
-        <p class="text-lg text-gray-300">View and manage upcoming events.</p>
+        <p class="text-xl text-gray-300 mb-6">
+            Today is {{ current_date }}
+        </p>
+
+        <div class="text-white">
+            {{ calendar|safe }}
+        </div>
     </div>
 {% endblock %}

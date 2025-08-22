@@ -3,14 +3,13 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+import datetime
+import calendar as cal_module
 # Create your views here.
 
 def home(request):
     return render(request, 'home.html')
 
-def dashboard(request):
-    return render(request, 'dashboard.html')
 
 
 def login_or_create_user(request):
@@ -49,9 +48,18 @@ def dashboard(request):
 def activities(request):
     return render(request, 'activities.html')
 
+
 @login_required
 def calendar(request):
-    return render(request, 'calendar.html')
+    today = datetime.date.today()
+
+    cal = cal_module.HTMLCalendar().formatmonth(today.year, today.month)
+
+    context = {
+        'current_date': today.strftime("%A, %B %d, %Y"),
+        'calendar': cal
+    }
+    return render(request, 'calendar.html', context)
 
 @login_required
 def bulletin_board(request):
