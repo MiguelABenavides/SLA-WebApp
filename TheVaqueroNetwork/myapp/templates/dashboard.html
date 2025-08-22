@@ -1,24 +1,23 @@
 {% extends 'base.html' %}
-
 {% block title %}Dashboard - Home{% endblock %}
-
 {% block content %}
-    <h1 class="text-4xl font-bold mb-4">Dashboard</h1>
-
-    {% if messages %}
-        <div class="mb-6">
-            {% for message in messages %}
-                <p class="text-green-400 text-lg">{{ message }}</p>
-            {% endfor %}
-        </div>
-    {% endif %}
-
-    <div class="bg-gray-800 p-6 rounded-lg">
-        <p class="text-lg">
-            Welcome to The Vaquero Network!
-        </p>
-        <p class="mt-2 text-gray-400">
-            This is your dashboard home. Use the menu on the left to explore Activities, Calendar, Bulletin Board, and Emergency Contacts.
-        </p>
+<style>
+    .content-title { font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem; }
+    .message-success { color: #4ade80; font-size: 1.125rem; }
+    .info-box { background-color: #1f2937; padding: 1.5rem; border-radius: 0.5rem; }
+    .info-box .welcome-text { font-size: 1.125rem; }
+    .info-box .description-text { margin-top: 0.5rem; color: #9ca3af; }
+</style>
+<h1 class="content-title">Dashboard</h1>
+{% if messages %}
+    <div style="margin-bottom: 1.5rem;">
+        {% for message in messages %}
+            <p class="message-success">{{ message }}</p>
+        {% endfor %}
     </div>
+{% endif %}
+<div class="info-box">
+    <p class="welcome-text">Welcome to The Vaquero Network!</p>
+    <p class="description-text">This is your dashboard home. Use the menu on the left to explore the different sections.</p>
+</div>
 {% endblock %}

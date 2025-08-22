@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
-
 {% block title %}Bulletin Board{% endblock %}
-
 {% block content %}
-    <h1 class="text-4xl font-bold mb-6">Bulletin Board</h1>
-
-    <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
-        <p class="text-lg text-gray-300">Browse and post announcements.</p>
-    </div>
+<style>
+    .content-title { font-size: 2.25rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .content-box { background-color: #1f2937; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+    .description { font-size: 1.125rem; color: #d1d5db; }
+</style>
+<h1 class="content-title">Bulletin Board</h1>
+<div class="content-box">
+    <p class="description">Browse and post announcements.</p>
+</div>
 {% endblock %}

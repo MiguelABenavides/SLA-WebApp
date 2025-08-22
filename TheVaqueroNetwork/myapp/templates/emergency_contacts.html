@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
-
 {% block title %}Emergency Contacts{% endblock %}
-
 {% block content %}
-    <h1 class="text-4xl font-bold mb-6">Emergency Contacts & Quick Access</h1>
-
-    <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
-        <p class="text-lg text-gray-300 mb-6">Quick access to security, counseling, and health services.</p>
-        
-        <div class="space-y-3 text-gray-200">
-            <p><strong>Campus Security:</strong> 555-123-4567</p>
-            <p><strong>Counseling Services:</strong> 555-987-6543</p>
-            <p><strong>Health Services:</strong> 555-456-7890</p>
-        </div>
+<style>
+    .content-title { font-size: 2.25rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .content-box { background-color: #1f2937; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+    .description { font-size: 1.125rem; color: #d1d5db; margin-bottom: 1.5rem; }
+    .contact-list { color: #e5e7eb; }
+    .contact-list p { margin-bottom: 0.75rem; }
+</style>
+<h1 class="content-title">Emergency Contacts & Quick Access</h1>
+<div class="content-box">
+    <p class="description">Quick access to security, counseling, and health services.</p>
+    <div class="contact-list">
+        <p><strong>Campus Security:</strong> 555-123-4567</p>
+        <p><strong>Counseling Services:</strong> 555-987-6543</p>
+        <p><strong>Health Services:</strong> 555-456-7890</p>
     </div>
+</div>
 {% endblock %}
