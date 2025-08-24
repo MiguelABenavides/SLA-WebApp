@@ -1,4 +1,6 @@
-The Vaquero Network: Web Application 🌐
+Developed By: Miguel Benavides, Gera Quintana, Mohammad Almutairi 
+
+The Vaquero Network: Web Application
 Project Overview
 
 This repository contains the code for the web application component of The Vaquero Network, a social life application designed for UTRGV students. Built with Django, this web app provides a browser-based interface for managing student activities and accessing key information. It complements the desktop application by offering an alternative access point to some of the core features.
