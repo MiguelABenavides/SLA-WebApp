@@ -7,15 +7,27 @@
     .info-box { background-color: #1f2937; padding: 1.5rem; border-radius: 0.5rem; }
     .info-box .welcome-text { font-size: 1.125rem; }
     .info-box .description-text { margin-top: 0.5rem; color: #9ca3af; }
+    .logout-btn {
+        position: absolute;
+        top: 2.5rem;
+        right: 2.5rem;
+        background-color: #ef4444;
+        color: #fff;
+        font-weight: 700;
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.2s;
+        z-index: 100;
+    }
+    .logout-btn:hover {
+        background-color: #dc2626;
+    }
 </style>
+<a href="{% url 'log_out' %}" class="logout-btn">Log Out</a>
 <h1 class="content-title">Dashboard</h1>
-{% if messages %}
-    <div style="margin-bottom: 1.5rem;">
-        {% for message in messages %}
-            <p class="message-success">{{ message }}</p>
-        {% endfor %}
-    </div>
-{% endif %}
 <div class="info-box">
     <p class="welcome-text">Welcome to The Vaquero Network!</p>
     <p class="description-text">This is your dashboard home. Use the menu on the left to explore the different sections.</p>
