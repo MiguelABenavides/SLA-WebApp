@@ -16,8 +16,35 @@
 <div class="content-box">
     <p class="description">Here you can add, view, edit, and delete your tasks.</p>
     <div class="button-group">
-        <button class="btn btn-green">Add New Task</button>
-        <button class="btn btn-blue">View All Tasks</button>
+        <a href="{% url 'add_task' %}" class="btn btn-green" style="text-decoration:none;">Add New Task</a>
     </div>
+
+    <hr style="margin:2rem 0; border-color:#374151;">
+    <h2 style="font-size:1.5rem; font-weight:700; margin-bottom:1rem;">Your Tasks</h2>
+    {% if tasks %}
+        <ul style="list-style:none; padding:0;">
+        {% for task in tasks %}
+            <li style="background:#2d3748; margin-bottom:1rem; padding:1rem; border-radius:0.5rem; display:flex; align-items:center; justify-content:space-between;">
+                <div>
+                    <strong>{{ task.title }}</strong><br>
+                    <span style="color:#d1d5db;">{{ task.description }}</span><br>
+                    <span style="font-size:0.9rem; color:#9ca3af;">Added: {{ task.created_at|date:'M d, Y H:i' }}</span>
+                    {% if task.completed %}
+                        <span style="color:#4ade80; font-weight:700; margin-left:1rem;">Completed</span>
+                    {% endif %}
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                    {% if task.completed %}
+                        <span title="Completed" style="font-size:1.5rem; color:#4ade80;">&#10003;</span>
+                    {% endif %}
+                    <a href="{% url 'edit_task' task.id %}" class="btn btn-blue" style="text-decoration:none;">Edit</a>
+                    <a href="{% url 'delete_task' task.id %}" class="btn btn-red" style="text-decoration:none; background-color:#ef4444; margin-left:0.5rem;">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p style="color:#9ca3af;">No tasks added yet.</p>
+    {% endif %}
 </div>
 {% endblock %}
