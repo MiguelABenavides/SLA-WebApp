@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import datetime
 import calendar as cal_module
-# Create your views here.
+from .models import Task
 
 def home(request):
     return render(request, 'home.html')
@@ -46,8 +46,22 @@ def dashboard(request):
 
 @login_required
 def activities(request):
-    return render(request, 'activities.html')
+    tasks = Task.objects.filter(user=request.user)
+    return render(request, 'activities.html', {'tasks': tasks})
 
+
+@login_required
+def add_task(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        if not title:
+            messages.error(request, 'Task title is required.')
+            return render(request, 'add_task.html')
+        Task.objects.create(user=request.user, title=title, description=description)
+        messages.success(request, 'Task added successfully!')
+        return redirect('activities')
+    return render(request, 'add_task.html')
 
 @login_required
 def calendar(request):
